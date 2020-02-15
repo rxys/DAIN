@@ -10,7 +10,7 @@ import numpy
 import networks
 from my_args import  args
 
-from scipy.misc import imread, imsave
+from cv2 import imread, imwrite
 from AverageMeter import  *
 
 torch.backends.cudnn.benchmark = True # to speed up the
@@ -159,7 +159,7 @@ if DO_MiddleBurryOther:
         X1 = np.transpose(255.0 * X1.clip(0,1.0)[0, :, intPaddingTop:intPaddingTop+intHeight, intPaddingLeft: intPaddingLeft+intWidth], (1, 2, 0))
 
 
-        imsave(arguments_strOut, np.round(y_).astype(numpy.uint8))
+        imwrite(arguments_strOut, np.round(y_).astype(numpy.uint8))
 
 
         rec_rgb =  imread(arguments_strOut)

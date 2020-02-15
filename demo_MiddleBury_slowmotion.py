@@ -7,7 +7,7 @@ import numpy as np
 import numpy
 import networks
 from my_args import  args
-from scipy.misc import imread, imsave
+from cv2 import imread, imwrite
 from AverageMeter import  *
 import shutil
 
@@ -166,7 +166,7 @@ if DO_MiddleBurryOther:
         # for item, time_offset  in zip(y_,time_offsets):
         #     arguments_strOut = os.path.join(gen_dir, dir, "frame10_i{:.3f}_11.png".format(time_offset))
         #
-        #     imsave(arguments_strOut, np.round(item).astype(numpy.uint8))
+        #     imwrite(arguments_strOut, np.round(item).astype(numpy.uint8))
         #
         # # copy the first and second reference frame
         # shutil.copy(arguments_strFirst, os.path.join(gen_dir, dir,  "frame10_i{:.3f}_11.png".format(0)))
@@ -178,7 +178,7 @@ if DO_MiddleBurryOther:
         for item, time_offset in zip(y_, time_offsets):
             arguments_strOut = os.path.join(gen_dir, dir, "{:0>4d}.png".format(count))
             count = count + 1
-            imsave(arguments_strOut, np.round(item).astype(numpy.uint8))
+            imwrite(arguments_strOut, np.round(item).astype(numpy.uint8))
         shutil.copy(arguments_strSecond, os.path.join(gen_dir, dir, "{:0>4d}.png".format(count)))
         count = count + 1
 
