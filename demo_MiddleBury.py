@@ -13,6 +13,9 @@ from my_args import  args
 from cv2 import imread, imwrite
 from AverageMeter import  *
 
+import warnings
+warnings.filterwarnings("ignore")
+
 torch.backends.cudnn.benchmark = True # to speed up the
 
 
